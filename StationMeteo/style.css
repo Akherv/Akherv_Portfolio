@@ -1,0 +1,774 @@
+/*---------------------------GENERAL--------------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+body {
+  background: rgb(236, 227, 227);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*-------------------------FENETRE & TABLETTE-----------------------------------------------------------*/
+
+#fenetre {
+  border: 7px solid grey;
+  width: 100%;
+  height: 400px;
+  margin: auto;
+  background-image: url(./img/aube.png);
+  background-size: cover;
+  filter: drop-shadow(10px -10px 10px #a9a9aa);
+}
+
+#conteneurFenetre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  min-width: 300px;
+  margin: auto;
+}
+
+.boutonFenetre {
+  position: relative;
+  top: 170px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: grey;
+  cursor: pointer;
+  z-index: 20;
+}
+
+#tablette {
+  width: 100%;
+  min-width: 300px;
+  height: 10px;
+  background-color: rgb(219, 91, 91);
+  margin: auto;
+  position: relative;
+  top: 135px;
+  z-index: 10;
+  border-radius: 9px;
+}
+
+/*----------------------------------------CUPCAKE (inspiré par le Codepen ice Cream-Cassidy Williams)---------------------------------------------------------------*/
+#conteneurcupcakeEtFace {
+  position: absolute;
+  top: -33px;
+  margin-left: 90px;
+}
+
+#conteneurCupcake {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 400px;
+}
+
+#basCreme {
+  border-radius: 30px;
+  width: 200px;
+  height: 45px;
+  background: pink;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+#milieuCreme {
+  border-radius: 20px;
+  width: 130px;
+  height: 40px;
+  background: pink;
+  margin: -15px;
+}
+
+#hautCreme {
+  border-radius: 30px;
+  width: 50px;
+  height: 40px;
+  background: pink;
+  margin: -5px;
+}
+
+@-webkit-keyframes confettisAnimation {
+
+  /* Safari, Opera, Chrome */
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(180deg);
+  }
+}
+
+@keyframes confettisAnimation {
+
+  /* Tous les autres navigateurs */
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(180deg);
+  }
+}
+
+#confettis {
+  z-index: 2;
+  width: 15px;
+  height: 6px;
+  background-color: transparent;
+  border-radius: 20px;
+  box-shadow: -50px 5px #ff6376, 50px -5px black, -10px 30px yellow;
+  -webkit-animation: confettisAnimation 5s infinite;
+  animation: confettisAnimation 5S infinite;
+}
+
+#confettis::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 6px;
+  border-radius: 20px;
+  background-color: transparent;
+  transform: rotate(45deg);
+  box-shadow: -40px 60px 0px black, 70px -30px 0px white, -12px -30px 0px #ff6376;
+  -webkit-animation: confettisAnimation 10s infinite;
+  animation: confettisAnimation 10S infinite;
+  background-color: white;
+}
+
+#sousCreme {
+  z-index: 0;
+  border-radius: 5px;
+  width: 170px;
+  height: 15px;
+  background: rgb(255, 255, 205);
+  margin-top: -5px;
+}
+
+#cake {
+  margin-top: 30px;
+  width: 100px;
+  height: 80px;
+  border: 1px solid rgb(255, 227, 149);
+  border-color: transparent transparent transparent rgb(248, 223, 155);
+  border-width: 40px 40px 40px 80px;
+  transform: rotate(90deg);
+  filter: drop-shadow(10px -10px 10px #a9a9aa);
+}
+
+#face {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  position: relative;
+  bottom: 180px;
+  cursor: pointer;
+}
+
+#yeux {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  1% {
+    -webkit-transform: scaleX(1.1) scaleY(0.1);
+  }
+
+  2% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  24% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  25% {
+    -webkit-transform: scaleX(1.1) scaleY(0.1);
+  }
+
+  26% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  50% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  74% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  75% {
+    -webkit-transform: scaleX(1.1) scaleY(0.1);
+  }
+
+  76% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+}
+
+.oeil {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background: rgb(139, 41, 41);
+  border-bottom: 2px solid beige;
+  border-radius: 100%;
+  -webkit-animation: blink 10s infinite ease-in;
+  animation: blink 10S infinite ease-in;
+}
+
+.oeil::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 100%;
+}
+
+.joues {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  filter: blur(2px);
+}
+
+.pomettes {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: pink;
+  border-radius: 100%;
+}
+
+#bouche {
+  width: 35px;
+  height: 15px;
+  background: #ff6376;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-top: 10px;
+}
+
+/*----------------------------------------VERRE (inspiré par le Codepen Bubble Tea Cup-Ryan Zola) ---------------------------------------------------------------*/
+#conteneurVerreEtBubbles {
+  position: absolute;
+  top: -530px;
+  z-index: -2;
+}
+
+#conteneurVerre {
+  margin: auto;
+  margin-top: 200px;
+  width: 400px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: -2;
+}
+
+
+#verre {
+  width: 100px;
+  border-top: 250px solid #F5F5F5;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  opacity: 0.5;
+  z-index: 3;
+  position: relative;
+  top: 525px;
+  filter: drop-shadow(10px -10px 10px #a9a9aa);
+}
+
+#verre:before,
+#verre:after {
+  position: absolute;
+  content: '';
+  background-color: #F5F5F5;
+}
+
+#verre:before {
+  height: 4px;
+  width: 160px;
+  top: -250px;
+  left: -30px;
+  border-radius: 2px;
+  box-shadow: 0 1px rgba(#DEDBD2, 0.5);
+}
+
+
+#paille {
+  height: 300px;
+  width: 20px;
+  top: 180px;
+  left: 50px;
+  transform: rotate(10deg);
+  background: pink;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+#lumiere {
+  left: 100px;
+  width: 15px;
+  border-top: 240px solid whitesmoke;
+  border-left: -25px solid rgba(245, 245, 245, 0.116);
+  border-right: 25px solid transparent;
+  border-radius: 0, 0, 0, 4px;
+  opacity: 0.2;
+  z-index: 7;
+  position: relative;
+  bottom: 240px;
+  left: 50px;
+}
+
+#tea {
+  width: 98px;
+  top: 30px;
+  left: 4px;
+  border-radius: 2px;
+  border-top: 219px solid orange;
+  border-right: 22px solid transparent;
+  border-left: 22px solid transparent;
+  z-index: 2;
+}
+
+/*-------------------------------BUBBLES----------------------------------------------------------------------*/
+
+@-webkit-keyframes bubblesAnimation {
+
+  /* Safari, Opera, Chrome */
+  from {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-50px);
+  }
+
+  to {
+    transform: translate(-100px) rotate(30deg);
+  }
+}
+
+@keyframes bubblesAnimation {
+
+  /* Tous les autres navigateurs */
+  from {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(0px, -5px) rotate(20deg);
+  }
+
+  to {
+    transform: translateY(0px, 0px) rotate(0deg);
+  }
+}
+
+#conteneurBubbles {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 910px;
+  left: -10px;
+}
+
+.bubbles {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background-color: rgba(42, 152, 167, 0.328);
+  border: 1px solid rgb(255, 255, 255);
+  z-index: 3;
+  -webkit-animation: bubblesAnimation 2s linear infinite;
+  animation: bubblesAnimation 2S linear infinite;
+}
+
+.bubbles:before,
+.bubbles:after {
+  position: absolute;
+  content: '';
+  background: #FFF;
+  border-radius: 50%;
+}
+
+.bubbles:before {
+  top: 4px;
+  left: 4px;
+  height: 4px;
+  width: 4px;
+  opacity: 0.8;
+}
+
+.bubbles:after {
+  top: 8px;
+  left: 8px;
+  height: 2px;
+  width: 2px;
+  opacity: 0.6;
+}
+
+
+#bubble1 {
+  position: relative;
+  left: 10px;
+}
+
+#bubble2 {
+  position: relative;
+  left: 49px;
+  z-index: 3;
+  background-color: rgba(0, 0, 255, 0.472);
+}
+
+#bubble3 {
+  position: relative;
+  left: 30px;
+}
+
+#bubble4 {
+  position: relative;
+  left: -10px;
+  z-index: 3;
+  background-color: rgba(0, 0, 255, 0.281);
+}
+
+#bubble5 {
+  position: relative;
+  left: 50px;
+}
+
+#bubble6 {
+  position: relative;
+  left: 35px;
+  z-index: 3;
+  background-color: rgba(0, 0, 255, 0.472);
+}
+
+/********************************STATION-METEO*******************************************************/
+
+#conteneurStationMeteo {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 230px;
+  right: 260px;
+}
+
+#stationMeteo {
+  height: 130px;
+  background-color: rgba(128, 128, 128, 0.274);
+  background-image: url('./img/mirror.svg');
+  background-size: 35vh;
+  background-position-y: 0px;
+  background-position-x: -55px;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  margin-right: 20px;
+  filter: drop-shadow(10px -10px 10px #a9a9aa);
+  border: 2px solid rgb(189, 184, 184);
+  box-shadow: 5px 0px 0px rgb(168, 165, 165);
+}
+
+#result {
+  height: 60px;
+  width: 160px;
+  z-index: 10;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+#result img {
+  position: relative;
+  left: 50px;
+}
+
+#conteneurResultMeteo {
+  z-index: 10;
+  display: inline-flex;
+  text-align: center;
+}
+
+#span1 {
+  position: relative;
+  left: 40px;
+  top: 15px;
+}
+
+#conteneurResultMeteo1 {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+
+#conteneurResultMeteo p {
+  position: relative;
+  top: -10px;
+  z-index: 10;
+}
+
+#conteneurstation {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+#search {
+  height: 20px;
+  width: 100px;
+  margin-top: 25px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border: 0px;
+  text-transform: uppercase;
+}
+
+
+#stationMeteoSubmit {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+
+/**********************************REVEIL*************************************************/
+
+#conteneurReveil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 150px;
+  right: 100px;
+}
+
+#reveil {
+  position: relative;
+  top: -79px;
+  right: 40px;
+  width: 90px;
+  height: 70px;
+  background-color: rgb(46, 94, 139);
+  background-image: url(./img/mirror.svg);
+  background-position-x: 45px;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  font-size: 30px;
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 0px 0px rgb(43, 85, 124);
+  color: #daf6ff;
+  text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+}
+
+
+/****************************CALENDRIER************************************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+#calendrierConteneur {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  min-width: 300px;
+  margin: auto;
+}
+
+.calendar {
+  background: #fff;
+  border-radius: 4px;
+  color: #222629;
+  overflow: hidden;
+  margin-top: 200px;
+  z-index: 10;
+}
+
+button {
+  border: none;
+}
+
+.calendar .header {
+  background: #ddd;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.calendar .month {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.calendar button {
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: Consolas;
+  font-size: 23px;
+  font-weight: bold;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.calendar button:hover {
+  color: rgb(46, 94, 139);
+}
+
+.calendar button:first-child {
+  float: left;
+}
+
+.calendar button:last-child {
+  float: right;
+}
+
+.calendar .cell {
+  background: #fff;
+  color: #5d5d5d;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 10px 0;
+  text-align: center;
+  width: calc(100% / 7);
+}
+
+.calendar .day {
+  font-size: .8rem;
+  padding: 8px 0;
+}
+
+.calendar .day,
+.calendar .today {
+  background: rgb(46, 94, 139);
+  color: #fff;
+}
+
+/******************************************LAMPE****************************************************/
+
+#container {
+  position: absolute;
+  top: -20px;
+  left: 45%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.lampe {
+
+  width: 100px;
+  height: 0px;
+  border-bottom: 40px solid #2b7777;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  margin: 80px auto;
+  cursor: pointer;
+  position: absolute;
+  z-index: 5;
+}
+
+.lampe ::before {
+  position: absolute;
+  top: -120px;
+  left: calc(50% - 4px);
+  width: 8px;
+  height: 120px;
+  content: '';
+  background: #2b7777;
+}
+
+#bulb {
+  width: 50px;
+  height: 25px;
+  content: '';
+  margin: auto;
+  background: #42b3c77e;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  position: relative;
+  top: 40px;
+}
+
+#bulbAllume {
+  width: 50px;
+  height: 25px;
+  content: '';
+  margin: auto;
+  background: yellow;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  position: relative;
+  top: 40px;
+}
+
+/*****************************************BOITE A IDEES************************************************/
+/*En cours de développement*/
+
+#popup {
+  background: rgba(255, 255, 255, 0.479);
+  border-radius: 4px;
+  margin-top: 200px;
+  width: 400px;
+  height: 250px;
+  z-index: 9;
+  text-align: center;
+}
+
+#textArea {
+  background: rgba(255, 255, 255, 0.479);
+  border-radius: 4px;
+  color: #222629;
+  width: 370px;
+  height: 220px;
+  overflow: hidden;
+  margin-top: 10px;
+  border: 0px;
+  z-index: 10;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+}

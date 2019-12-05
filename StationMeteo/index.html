@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<title>Mon animation Météo</title>
+</head>
+
+
+<body>
+
+
+<!------------CONTENEUR FENETRE------------------>
+    <div id="conteneurFenetre">
+<!--------------CONTENEUR LAMPE------------------->
+
+    <div class="lampe">
+        <div id="lamp__light"></div>
+        <div id="bulb"></div>
+    </div>
+
+      <div id="fenetre">
+        <div id="boutonFenetre" data-key="0" class="boutonFenetre"></div>
+      
+
+<section>
+<!------------CONTENEUR CUPCAKE & FACE----------->
+    <div id="conteneurcupcakeEtFace">
+      <div id="conteneurCupcake">
+        <div id="hautCreme"></div>
+        <div id="milieuCreme"></div>
+        <div id="basCreme">
+          <div id="confettis"></div>
+        </div>
+        <div id="sousCreme"></div>
+        <div id="cake"></div>
+
+        <div id="face">
+          <div id="yeux">
+            <div class="oeil"></div>
+            <div class="oeil"></div>
+          </div>
+          <div class="joues">
+            <div class="pomettes"></div>
+            <div class="pomettes"></div>
+          </div>
+          <div id="bouche"></div>
+      </div>
+    </div>
+<!-----------CONTENEUR VERRE & BUBBLES------------>
+      <div id="conteneurVerreEtBubbles">
+        <div id="conteneurBubbles">
+          <div id="bubble1" class="bubbles"></div>
+          <div id="bubble2" class="bubbles"></div>
+          <div id="bubble3" class="bubbles"></div>
+          <div id="bubble4" class="bubbles"></div>
+          <div id="bubble5" class="bubbles"></div>
+          <div id="bubble6" class="bubbles"></div>
+        </div>
+<!---------------CONTENEUR VERRE------------------>
+        <div id="conteneurVerre">
+          <div id="verre"></div>
+          <div id="paille"></div>
+          <div id="tea"></div>
+          <div id="lumiere"></div>
+        </div>
+      </div>
+<!----------CONTENEUR STATION METEO-------------->
+      <div id="conteneurStationMeteo">
+        <form id="stationMeteo">
+          <div id="result"></div>
+          <div id="conteneurstation">
+            <div id="stationMeteoSearch">
+              <input type="text" id="search" autocomplete="off" onblur="javascript:this.value=''" placeholder=" Votre ville">
+            </div>
+          </div>
+        </form>
+      </div>
+<!-------------CONTENEUR REVEIL------------------->
+      <div id="conteneurReveil">
+        <div id="reveil"></div>
+      </div>
+
+  </section>
+<!-------------CONTENEUR TABLETTE------------------->
+  </div>
+    <div id="tablette"></div>
+  </div>
+<!------------CONTENEUR CALENDRIER---------------->
+  <div id="calendrierConteneur">
+    <div id="calendar" class="calendar"></div>
+  </div>
+
+<!-------------------AUDIO------------------------->
+    <audio id="player">
+      <source src="http://s1download-universal-soundbank.com/mp3/sounds/7410.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="player2">
+      <source src="http://s1download-universal-soundbank.com/mp3/sounds/310.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="player3">
+      <source src="http://s1download-universal-soundbank.com/mp3/sounds/12234.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
