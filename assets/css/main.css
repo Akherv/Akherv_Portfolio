@@ -1776,7 +1776,7 @@ input, select, textarea {
 	}
 
 		.gallery > * {
-			width: 20rem;
+			/*width: 20rem;*/
 			height: 100%;
 		}
 
