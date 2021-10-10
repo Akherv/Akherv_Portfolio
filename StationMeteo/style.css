@@ -1,0 +1,585 @@
+/*_____VARIABLES_____*/
+:root {
+  --background__body: #ece3e3;
+  --windowButton__border : #808080;
+  --lamp__background : #2b7878;
+  --lamp__bulb: #42b3c77e;
+  --lamp__bulb--allume: #ffff00;
+  --cupcake__background: #ffc0cb;
+  --cupcake__jowl: #ffc0cb;
+  --cupcake__cream: #ffffcd;
+  --cupcake__face: #ffe395;
+  --cupcake__eyes: #8b2929;
+  --cupcake__mouth: #ff6376;
+  --glass__tea: #ffa500;
+  --glass__straw: #ffc0cb;
+  --weatherChannel__background: #80808046;
+  --weatherChannel__search__background: #f5f5f5;
+  --clock__background: #2e5e8b;
+  --clock__font__color: #daf6ff;
+  --tablet: #db5b5b;
+
+  --global__font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --clock__font:"Share Tech Mono", monospace;
+}
+
+/*_____ BASE _____*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--background__body);
+  font-family: var(--global__font);
+}
+
+#scene {
+  width: 50rem;
+  height: 60%;
+}
+
+/*_____ WINDOW _____*/
+#windowContainer {
+  width: 100%;
+  height: 50rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#windowContainer__wrapper {
+  width: 100%;
+  height: 100%;
+  margin-top: 4.6rem;
+  background-image: url(./img/aube.png);
+  background-size: cover;
+  background-position: center;
+  border: 0.7rem solid var(--windowButton__border);
+  filter: drop-shadow(1rem -1rem 1rem #a9a9aa);
+  overflow: hidden;
+}
+
+.window__button {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  top: 45%;
+  z-index: 20;
+  border-radius: 50%;
+  background-color: var(--windowButton__border);
+  cursor: pointer;
+}
+
+/*_____ LAMP _____*/
+.lamp {
+  width: 10rem;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 28%;
+  border-bottom: 4rem solid var(--lamp__background);
+  border-left: 2.5rem solid transparent;
+  border-right: 2.5rem solid transparent;
+  margin: 8rem auto 25rem;
+  cursor: pointer;
+}
+
+.lamp ::before {
+  content: "";
+  width: 0.8rem;
+  height: 12rem;
+  position: absolute;
+  top: -16rem;
+  left: calc(50% - 0.4rem);
+  background: var(--lamp__background);
+}
+
+#lamp__bulb {
+  width: 5rem;
+  height: 2.5rem;
+  position: relative;
+  top: 4rem;
+  background: var(--lamp__bulb);
+  border-bottom-left-radius: 10rem;
+  border-bottom-right-radius: 10rem;
+}
+
+#lamp__bulbAllume {
+  width: 5rem;
+  height: 2.5rem;
+  position: relative;
+  top: 4rem;
+  background: var(--lamp__bulb--allume);
+  border-bottom-left-radius: 10rem;
+  border-bottom-right-radius: 10rem;
+}
+
+/*_____ SHELF _____*/
+#shelf {
+  width: 100%;
+  height: 10rem;
+  position: relative;
+  z-index: 2;
+}
+
+/*_____ CUPCAKE _____*/
+#cupcake {
+  position: absolute;
+  left: 45%;
+  bottom: -7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cupcake__bottomCream {
+  border-radius: 3rem;
+  width: 20rem;
+  height: 4.5rem;
+  background: var(--cupcake__background);
+  display: flex;
+  justify-content: center;
+}
+
+#cupcake__middleCream {
+  border-radius: 2rem;
+  width: 13rem;
+  height: 4rem;
+  background: var(--cupcake__background);
+  margin: -1.5rem;
+}
+
+#cupcake__topCream {
+  border-radius: 3rem;
+  width: 5rem;
+  height: 4rem;
+  background: var(--cupcake__background);
+  margin: -0.5rem;
+}
+
+#cupcake__bottomCream__confetti {
+  width: 1.5rem;
+  height: 0.6rem;
+  border-radius: 2rem;
+  box-shadow: -5rem 0.5rem #ff6376, 5rem -0.5rem #000000, -1rem 3rem #ffff00;
+  animation: cupcake__bottomCream__confettiAnimation 5s infinite;
+  -webkit-animation: cupcake__bottomCream__confettiAnimation 5s infinite;
+}
+
+#cupcake__bottomCream__confetti::after {
+  width: 1.5rem;
+  height: 0.6rem;
+  content: "";
+  position: absolute;
+  border-radius: 2rem;
+  background-color: #ffffff;
+  box-shadow: -4rem 6rem 0 #000000, 7rem -3rem 0 #ffffff, -1.2rem -3rem 0 #ff6376;
+  transform: rotate(45deg);
+  animation: cupcake__bottomCream__confettiAnimation 10s infinite;
+  -webkit-animation: cupcake__bottomCream__confettiAnimation 10s infinite;
+}
+
+#cupcake__creamLine {
+  border-radius: 0.5rem;
+  width: 18rem;
+  height: 1.5rem;
+  background: var(--cupcake__cream);
+  margin-top: -0.5rem;
+}
+
+#cupcake__cake {
+  width: 18rem;
+  height: 18rem;
+  border: 0.1rem solid var(--cupcake__face);
+  border-color: transparent transparent transparent var(--cupcake__face);
+  border-width: 4rem 0 4rem 10rem;
+  transform: rotate(90deg);
+  filter: drop-shadow(1rem -1rem 1rem #a9a9aa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cupcake__face {
+  position: absolute;
+  left: -10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotate(-90deg);
+}
+
+#cupcake__eyes {
+  width: 6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.eye {
+  width: 1.8rem;
+  height: 1.8rem;
+  position: relative;
+  background: var(--cupcake__eyes);
+  border-bottom: 0.2rem solid beige;
+  border-radius: 100%;
+  animation: blink 10s infinite ease-in;
+  -webkit-animation: blink 10s infinite ease-in;
+}
+
+.eye::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  display: block;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  background: #fff;
+  border-radius: 100%;
+  transform: translateX(-50%);
+}
+
+.cupcake__jowls {
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  filter: blur(0.2rem);
+}
+
+.jowl {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  background: var(--cupcake__jowl);
+  border-radius: 100%;
+}
+
+#cupcake__mouth {
+  width: 3.5rem;
+  height: 1.5rem;
+  margin-top: 1rem;
+  background: var(--cupcake__mouth);
+  border-radius: 1rem;
+}
+
+/*_____ GLASS _____*/
+#glassWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -2;
+}
+
+#glassContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#glassContainer__glass {
+  width: 104%;
+  position: absolute;
+  bottom: 0;
+  border-top: 25rem solid #f5f5f5;
+  border-left: 2.5rem solid transparent;
+  border-right: 2.5rem solid transparent;
+  opacity: 0.5;
+  filter: drop-shadow(1rem -1rem 1rem #a9a9aa);
+}
+
+#straw {
+  width: 2rem;
+  height: 30rem;
+  position: absolute;
+  left: 5rem;
+  bottom: 0;
+  background: var(--glass__straw);
+  transform: rotate(10deg);
+}
+
+#glassContainer__shine {
+  width: 1.5rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-top: 24.2rem solid #f5f5f5;
+  border-right: 2.5rem solid transparent;
+  opacity: 0.2;
+}
+
+#glassContainer__tea {
+  width: 13rem;
+  border-top: 22rem solid var(--glass__tea);
+  border-right: 2.2rem solid transparent;
+  border-left: 2.2rem solid transparent;
+}
+
+/*_____ WEATHER CHANNEL _____*/
+#weatherChannel {
+  width: 16rem;
+  height: 14rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--weatherChannel__background);
+  background-image: url("./img/mirror.svg");
+  background-size: 35vh;
+  background-position-y: 0;
+  background-position-x: -5.5rem;
+  background-repeat: no-repeat;
+  border: 0.2rem solid #bdb8b8;
+  border-radius: 1rem;
+  filter: drop-shadow(1rem -1rem 1rem #a9a9aa);
+  box-shadow: 0.5rem 0 0 #a8a5a5;
+}
+
+#weatherChannel__results {
+  height: 6rem;
+  z-index: 10;
+  font-weight: bold;
+}
+
+#weatherChannel__results img {
+  position: relative;
+  left: 5rem;
+}
+
+#conteneurweatherChannel__resultsMeteo {
+  display: inline-flex;
+  text-align: center;
+}
+
+#span1 {
+  position: relative;
+  top: 1.5rem;
+  left: 4rem;
+}
+
+#conteneurweatherChannel__resultsMeteo1 {
+  position: relative;
+  top: -2rem;
+  z-index: 10;
+  text-align: center;
+}
+
+#conteneurweatherChannel__resultsMeteo p {
+  position: relative;
+  top: -1rem;
+  z-index: 10;
+}
+
+#weatherChannel__search {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#search {
+  width: 10rem;
+  height: 2rem;
+  margin-top: 2.5rem;
+  background-color: var(--weatherChannel__search__background);
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+#weatherChannelSubmit {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0 1.5rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/*_____ CLOCK _____*/
+
+#clock {
+  width: 7em;
+  height: 4.375em;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--clock__background);
+  background-image: url(./img/mirror.svg);
+  background-position-x: 4.1em;
+  background-repeat: no-repeat;
+  color: var(--clock__font__color);
+  border-radius: 0.625em;
+  font-family: var(--clock__font);
+  font-size: 1.7rem;
+  text-shadow: 0 0 1.25em #0aafe6,
+    0 0 1.25em #0aafe600;
+}
+
+#date {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+#date span {
+  margin-top: 3rem;
+  padding: 0.2rem;
+}
+
+#time {
+  height: 70%;
+  display: flex;
+  align-items: center;
+}
+
+/*_____ TABLET _____*/
+#tablet {
+  width: 100%;
+  height: 1rem;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--tablet);
+  border-radius: 0.9rem;
+}
+
+/*_____ IDEA BOX _____*/
+#ideaBoxContainer {
+  height: 40%;
+}
+
+.ideaBox {
+  display: none;
+  margin-top: 5%;
+  background: #fff;
+  border-radius: 0.4rem;
+  color: #222629;
+  overflow: hidden;
+}
+
+#popup {
+  width: 40rem;
+  height: 25rem;
+  text-align: center;
+}
+
+#textArea {
+  width: 37rem;
+  height: 22rem;
+  z-index: 10;
+  margin-top: 1rem;
+  border: 0;
+  font-size: 2rem;
+}
+
+/*_____ ANIMATIONS _____*/
+@-webkit-keyframes cupcake__bottomCream__confettiAnimation {
+  /* Safari, Opera, Chrome */
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(180deg);
+  }
+}
+
+@keyframes cupcake__bottomCream__confettiAnimation {
+  /* Tous les autres navigateurs */
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(180deg);
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  1% {
+    -webkit-transform: scaleX(1.1) scaleY(0.1);
+  }
+
+  2% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  24% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  25% {
+    -webkit-transform: scaleX(1.1) scaleY(0.1);
+  }
+
+  26% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  50% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  74% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  75% {
+    -webkit-transform: scaleX(1.1) scaleY(0.1);
+  }
+
+  76% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+  }
+}
+
+/*_____ RESPONSIVE _____*/
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+
+  #scene {
+    width: 100%;
+  }
+
+  #weatherChannel {
+    height: 20rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #clock {
+    left: 20%;
+  }
+
+  #cupcake {
+    left: 20%;
+  }
+}
