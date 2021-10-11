@@ -39,7 +39,6 @@ html {
 
 body {
   width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -581,5 +580,13 @@ body {
 
   #cupcake {
     left: 20%;
+  }
+
+  #ideaBoxContainer, #popup {
+    width: 100%;
+  }
+
+  #textArea {
+    width: 90%;
   }
 }
